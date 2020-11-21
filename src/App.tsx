@@ -31,7 +31,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/codes" component={Codes} />
-        <Route path="/open/:gift" component={Open} />
+        <Route path="/open/:day" component={Open} />
         <Route path="/" component={Scanner} />
       </Switch>
     </Router>

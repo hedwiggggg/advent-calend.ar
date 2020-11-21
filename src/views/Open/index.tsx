@@ -1,42 +1,48 @@
 import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-import gifts from 'src/gifts';
-import { Gift } from 'src/gifts/types';
+import days from 'src/days';
+import { Day } from 'src/days/types';
 
 function Open() {
-  const [OpenGift, setOpenGift] = useState<typeof Gift>();
-  const { gift } = useParams<{ gift: string }>();
+  const [$Day, setOpen$Day] = useState<typeof Day>();
+  const { day } = useParams<{ day: string }>();
 
-  const loadGift = gifts[gift];
+  const loadDay = days[day];
 
   useEffect(() => {
-    loadGift()
-      .then(($Gift) => setOpenGift(() => $Gift.default))
-  }, [loadGift]);
+    loadDay()
+      .then(($Day) => setOpen$Day(() => $Day.default))
+  }, [loadDay]);
 
   return (
-    <div className={styleGiftsContainer}>
-      <div dangerouslySetInnerHTML={{ __html: OpenGift?.content ?? '' }} />
+    <div className={styleDaysContainer}>
+      <Link className={styleBackLink} to={"/"}>Zurück</Link>
+      <div dangerouslySetInnerHTML={{ __html: $Day?.content ?? '' }} />
     </div>
   );
 }
 
-const styleGiftsContainer = css`
+const styleBackLink = css`
   position: relative;
-  display: flex;
+`;
 
-  width: 100%;
-  max-width: 100%;
+const styleDaysContainer = css`
+  position: relative;
 
+  min-width: 100%;
   height: 100%;
 
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
   box-sizing: border-box;
 
   div {
     position: relative;
+    white-space: nowrap;
   }
 `;
 

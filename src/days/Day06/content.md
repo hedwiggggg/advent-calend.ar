@@ -1,0 +1,5 @@
+### Day06 
+
+---
+
+`dNRmPNUYRfQByRaWoOYhfWt`

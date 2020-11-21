@@ -4,9 +4,9 @@ import EventEmitter from "eventemitter3";
 import { coverFit, roundedRectangle } from "./helper";
 import { transform2d } from "./matrix";
 
-import gifts from 'src/gifts';
-import Loading from 'src/gifts/Loading'
-import { Gift, GiftImport } from 'src/gifts/types';
+import days from 'src/days';
+import Loading from 'src/days/Loading'
+import { Day, DayImport } from 'src/days/types';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import createScanWorker from "workerize-loader!./scan.worker";
@@ -15,15 +15,10 @@ import type { Symbol } from "zbar.wasm";
 
 import "webrtc-adapter";
 
-export enum Errors {
-  ScanStopped,
-  ScanTimeout,
-}
-
 type BindProps = {
   canvasVideo: HTMLCanvasElement;
   canvasOverlay: HTMLCanvasElement;
-  setGift: React.Dispatch<React.SetStateAction<typeof Gift | null>>;
+  setDay: React.Dispatch<React.SetStateAction<typeof Day | null>>;
 };
 
 class Scanner extends EventEmitter {
@@ -45,9 +40,9 @@ class Scanner extends EventEmitter {
   private static stopped = true;
   private static symbol?: Symbol;
 
-  private static currentGift?: typeof Gift;
-  private static currentGiftImport?: () => GiftImport;
-  private static setGift?: React.Dispatch<React.SetStateAction<typeof Gift | null>>;
+  private static currentDay?: typeof Day;
+  private static currentDayImport?: () => DayImport;
+  private static setDay?: React.Dispatch<React.SetStateAction<typeof Day | null>>;
 
   static async start() {
     const canvas = document.createElement('canvas');
@@ -144,8 +139,8 @@ class Scanner extends EventEmitter {
       Scanner.contextOverlay.canvas.style.opacity = '1';
       Scanner.contextOverlay.canvas.style.transform = `matrix3d(${matrix.join(', ')})`;
 
-      if (Scanner.currentGift) {
-        const frame = Scanner.currentGift.getFrame();
+      if (Scanner.currentDay) {
+        const frame = Scanner.currentDay.getFrame();
         const { x, y, w, h } = coverFit(
           frame.width,
           frame.height,
@@ -176,100 +171,95 @@ class Scanner extends EventEmitter {
     if (contextVideo === null) throw new Error("contextVideo is null");
     if (contextOverlay === null) throw new Error("contextOverlay is null");
 
-    Scanner.setGift = props.setGift;
+    Scanner.setDay = props.setDay;
     Scanner.contextVideo = contextVideo;
     Scanner.contextOverlay = contextOverlay;
     Scanner.resize();
   }
 
-  public static scan = (
-    () => new Promise<string>(
-      (resolve, reject) => {  
-        let failCounter = 0;
+  public static async scan() {
+    let failCounter = 0;
 
-        const decoder = new TextDecoder();
-        const updateGift = (symbol: Symbol) => {
-          const dataString = decoder.decode(symbol.data);
-          const newGiftImport = gifts[dataString];
+    const decoder = new TextDecoder();
+    const updateDay = (symbol: Symbol) => {
+      const dataString = decoder.decode(symbol.data);
+      const newDayImport = days[dataString];
 
-          const isNewGift = (
-            typeof newGiftImport !== "undefined"
-            && Scanner.currentGiftImport !== newGiftImport
-            && Scanner.currentGift !== Loading
-          );
+      const isNewDay = (
+        typeof newDayImport !== "undefined"
+        && Scanner.currentDayImport !== newDayImport
+        && Scanner.currentDay !== Loading
+      );
 
-          Scanner.symbol = symbol;
+      Scanner.symbol = symbol;
 
-          if (isNewGift) {
-            Scanner.currentGift = Loading;
-            Scanner.currentGiftImport = newGiftImport;
+      if (isNewDay) {
+        Scanner.currentDay = Loading;
+        Scanner.currentDayImport = newDayImport;
 
-            newGiftImport()
-              .then((gift) => gift)
-              .then(
-                async (giftImport) => {
-                  const NewGift = giftImport.default;
+        newDayImport()
+          .then(
+            async (dayImport) => {
+              const NewDay = dayImport.default;
 
-                  await NewGift.init();
-                  await sleep(500); 
+              await NewDay.init();
+              await sleep(500); 
 
-                  if (Scanner.setGift) {
-                    Scanner.currentGift = NewGift;
-                    Scanner.setGift(() => NewGift);
-                  }
-                }
-              );
-          }
-
-          failCounter = 0;
-        }
-
-        const resetGift = () => {
-          if (failCounter >= 5) {
-            if (Scanner.setGift) {
-              Scanner.currentGiftImport = undefined;
-              Scanner.currentGift = undefined;
-              Scanner.setGift(null);
+              if (Scanner.setDay) {
+                Scanner.currentDay = NewDay;
+                Scanner.setDay(() => NewDay);
+              }
             }
-            
-            Scanner.symbol = undefined;
-          }
-
-          failCounter++;
-        }
-
-        const doScan = async () => {
-          if (Scanner.stopped) return reject(Errors.ScanStopped);
-
-          const now = Date.now();
-          const elapsed = now - Scanner.thenScanner;
-        
-          if (elapsed < Scanner.fpsScanner) return requestAnimationFrame(doScan);
-          if (Scanner.contextVideo === undefined) return requestAnimationFrame(doScan);
-
-          Scanner.thenScanner = Date.now();
-
-          const canvas = Scanner.contextVideo.canvas;
-
-          const scanX = (canvas.width - 300) / 2;
-          const scanY = (canvas.height - 300) / 2;
-          const scanImage = Scanner.contextVideo.getImageData(scanX, scanY, 300, 300);
-          const symbols = await Scanner.scanWorker.scan(scanImage);
-
-          if (symbols.length === 1) {
-            const [symbol] = symbols;
-            updateGift(symbol);
-          } else {
-            resetGift();
-          }
-
-          requestAnimationFrame(doScan);
-        }
-
-        doScan();
+          );
       }
-    )
-  );
+
+      failCounter = 0;
+    }
+
+    const resetDay = () => {
+      if (failCounter >= 5) {
+        if (Scanner.setDay) {
+          Scanner.currentDayImport = undefined;
+          Scanner.currentDay = undefined;
+          Scanner.setDay(null);
+        }
+        
+        Scanner.symbol = undefined;
+      }
+
+      failCounter++;
+    }
+
+    const doScan = async () => {
+      if (Scanner.stopped) return;
+
+      const now = Date.now();
+      const elapsed = now - Scanner.thenScanner;
+    
+      if (elapsed < Scanner.fpsScanner) return requestAnimationFrame(doScan);
+      if (Scanner.contextVideo === undefined) return requestAnimationFrame(doScan);
+
+      Scanner.thenScanner = Date.now();
+
+      const canvas = Scanner.contextVideo.canvas;
+
+      const scanX = (canvas.width - 300) / 2;
+      const scanY = (canvas.height - 300) / 2;
+      const scanImage = Scanner.contextVideo.getImageData(scanX, scanY, 300, 300);
+      const symbols = await Scanner.scanWorker.scan(scanImage);
+
+      if (symbols.length === 1) {
+        const [symbol] = symbols;
+        updateDay(symbol);
+      } else {
+        resetDay();
+      }
+
+      requestAnimationFrame(doScan);
+    }
+
+    doScan();
+  }
 }
 
 const sleep = (ms: number): Promise<void> => (
@@ -280,7 +270,7 @@ type CanvasRef = RefObject<HTMLCanvasElement>;
 
 export default (
   function useScanner(canvasVideo: CanvasRef, canvasOverlay: CanvasRef) {
-    const [gift, setGift] = useState<typeof Gift | null>(null);
+    const [day, setDay] = useState<typeof Day | null>(null);
 
     useEffect(() => {
       if (canvasVideo.current === null) return;
@@ -290,7 +280,7 @@ export default (
       Scanner.bind({
         canvasVideo: canvasVideo.current,
         canvasOverlay: canvasOverlay.current,
-        setGift: setGift,
+        setDay: setDay,
       });
   
       return () => {
@@ -298,6 +288,6 @@ export default (
       }
     }, [canvasVideo, canvasOverlay]);
   
-    return gift;
+    return day;
   }
 );

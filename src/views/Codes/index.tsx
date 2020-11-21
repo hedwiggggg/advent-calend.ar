@@ -1,38 +1,52 @@
 import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import gifts from 'src/gifts';
-import { GiftImport, Gift } from 'src/gifts/types';
+import days from 'src/days';
+import { DayImport, Day } from 'src/days/types';
 
-const giftsArray = Object.values(gifts);
+const daysArray = shuffle(Object.values(days));
 
-function RenderGift({ importGift }: { importGift: () => GiftImport }) {
-  const [TheGift, setTheGift] = useState<typeof Gift>();
+/**
+ * Shuffles array in place. ES6 version
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle<T>(a: Array<T>) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+
+  return a;
+}
+
+function RenderDay({ importDay }: { importDay: () => DayImport }) {
+  const [$Day, setThe$Day] = useState<typeof Day>();
 
   useEffect(() => {
-    importGift().then((giftImport) => {
-      setTheGift(() => giftImport.default);
+    importDay().then((dayImport) => {
+      setThe$Day(() => dayImport.default);
     })
-  }, [importGift]);
+  }, [importDay]);
 
   return (
     <div>
-      <img src={TheGift?.qrCode} alt="qr-code" />
-      <code>{ TheGift?.name }</code>
-      <code>{ TheGift?.hash }</code>
+      <img src={$Day?.qrCode} alt="qr-code" />
+      <code>{ $Day?.name }</code>
+      <Link to={`/open/${$Day?.hash}`}><code>{ $Day?.hash }</code></Link>
     </div>
   );
 }
 
 function Codes() {
   return (
-    <div className={styleGiftsContainer}>
-      { giftsArray.map((gift, i) => <RenderGift key={i} importGift={gift} />) }
+    <div className={styleDayssContainer}>
+      { daysArray.map(($day, i) => <RenderDay key={i} importDay={$day} />) }
     </div>
   );
 }
 
-const styleGiftsContainer = css`
+const styleDayssContainer = css`
   position: relative;
   float: left;
 
