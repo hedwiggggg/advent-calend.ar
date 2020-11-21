@@ -1,9 +1,5 @@
-import raw from 'raw.macro';
-
 import { Gift } from "../types";
 import { loadImage } from "../helper";
-
-import qrCode from './qr-code.png';
 
 import dXiqzMYQexvSEjjXcffVzUQ from 'src/assets/loading/frame_0.png';
 import dalmAsbEPWwhjAWppwnEsdB from 'src/assets/loading/frame_1.png';
@@ -15,10 +11,7 @@ import cIyiDPXaYvilxWLWaNVGXfJ from 'src/assets/loading/frame_6.png';
 import dnynaYVExCRHReIKXJTTwve from 'src/assets/loading/frame_7.png';
 import cmLKNBeYZjJGrgLzGVLHitJ from 'src/assets/loading/frame_8.png';
 
-export default class Loading implements Gift {
-  public static content = raw('./content.md');
-  public static qrCode = qrCode;
-
+export default class Loading extends Gift {
   private static framesPromises = [
     loadImage(dXiqzMYQexvSEjjXcffVzUQ),
     loadImage(dalmAsbEPWwhjAWppwnEsdB),

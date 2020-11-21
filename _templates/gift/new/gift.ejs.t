@@ -11,8 +11,10 @@ import qrCode from './qr-code.png';
 
 <%- h.importsFromPath(imagesPath) %>
 
-export default class <%= Name %> implements Gift {
+export default class <%= Name %> extends Gift {
+  public static hash = "<%= h.hash(name) %>";
   public static qrCode = qrCode;
+
   public static content = preval`
     const marked = require('marked');
     const twemoji = require('twemoji');

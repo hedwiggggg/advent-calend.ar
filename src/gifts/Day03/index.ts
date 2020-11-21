@@ -63,8 +63,10 @@ import eYtAaJEGuNpILnVXvNoMgiT from 'src/assets/day_03/frame_54_delay-0.05s.gif'
 import cgudsfUitAnUnRBpVNasJvv from 'src/assets/day_03/frame_55_delay-0.05s.gif';
 import vOrSBmrMuNMzhbcWZYcanF from 'src/assets/day_03/frame_56_delay-0.05s.gif';
 
-export default class Day03 implements Gift {
+export default class Day03 extends Gift {
+  public static hash = "cbrPCzAJhpEyFTnobdsNCaq";
   public static qrCode = qrCode;
+
   public static content = preval`
     const marked = require('marked');
     const twemoji = require('twemoji');

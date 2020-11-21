@@ -21,8 +21,10 @@ import ddmAVBthuLGpTvQOamcwSDR from 'src/assets/day_02/frame_14_delay-0.07s.png'
 import fQZgQGalkGyjhZpWtGHSzgm from 'src/assets/day_02/frame_15_delay-0.07s.png';
 import eEzWIPacMznilViJcDsTEaY from 'src/assets/day_02/frame_16_delay-0.069s.png';
 
-export default class Day02 implements Gift {
+export default class Day02 extends Gift {
+  public static hash = "aiDjqteQNhVBRLiHceCSRIO";
   public static qrCode = qrCode;
+
   public static content = preval`
     const marked = require('marked');
     const twemoji = require('twemoji');
