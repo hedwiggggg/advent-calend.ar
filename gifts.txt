@@ -14,7 +14,7 @@
 [x] Tee
 [x] Bade-Essenz
 [x] Chupa Chups Crazy Dips
-[ ] Amazon Gutschein
+[x] Amazon Gutschein
 [ ] Gutschein Schlittschuhlaufen / Burger essen
 [ ] Bade-Essenz
 [ ] Tee

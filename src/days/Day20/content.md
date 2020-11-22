@@ -1,5 +1,0 @@
-### Day20 
-
----
-
-`fkTkryMTucrSfMJgAMgoKyy`

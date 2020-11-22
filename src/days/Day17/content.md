@@ -1,5 +1,0 @@
-### Day17 
-
----
-
-`boBGBeTyndHXQtqmuhSkaqT`

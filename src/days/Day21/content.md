@@ -1,5 +1,0 @@
-### Day21 
-
----
-
-`cNZiZqMzbruoGEaLdZukHRE`

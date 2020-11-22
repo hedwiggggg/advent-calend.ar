@@ -1,5 +1,0 @@
-### Day19 
-
----
-
-`dRxyCvcYSEHGLzYbaoroBkR`
