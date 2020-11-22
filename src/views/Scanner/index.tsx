@@ -12,7 +12,7 @@ function Scanner() {
 
   const openDay = () => {
     if (Day !== null) {
-      history.push(`/open/${Day.hash}`);
+      history.push(`/open/${Day.__hash}`);
     }
   };
 

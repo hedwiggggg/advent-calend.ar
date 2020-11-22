@@ -18,11 +18,13 @@ import preval from 'preval.macro';
 <% } %>
 
 export default class <%= Name %> extends Day {
-  public static hash = "<%= h.hash(name) %>";
-  public static qrCode = qrCode;
+  public static __hash = "<%= h.hash(name) %>";
+  public static __name = "<%= name %>";
+
+  public static __qrCode = qrCode;
 
   <%if (typeof dev !== 'undefined') { %>
-  public static content = async () => {
+  public static __content = async () => {
     const contentRes = await fetch(contentMdUrl);
     const content = await contentRes.text();
     const _html = marked(content);
@@ -31,7 +33,7 @@ export default class <%= Name %> extends Day {
     return html;
   };
   <% } else { %>
-  public static content = async () => preval`
+  public static __content = async () => preval`
     const marked = require('marked');
     const twemoji = require('twemoji');
     const path = require('path');

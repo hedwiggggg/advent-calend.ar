@@ -14,7 +14,7 @@ function Open() {
   useEffect(() => {
     loadDay()
       .then(async ({ default: $Day }) => {
-        const content = await $Day.content();
+        const content = await $Day.__content();
         setContent(content);
       })
   }, [loadDay]);
@@ -52,14 +52,14 @@ const styleOverlayLeft = css`
   ${styleOverlay}
 
   left: 0;
-  background: linear-gradient(90deg, rgba(212,199,217,1) 0%, rgba(212,199,217,0) 100%);
+  background: linear-gradient(90deg, rgba(184, 170, 189, 1) 0%, rgba(184, 170, 189, 0) 100%);
 `;
 
 const styleOverlayRight = css`
   ${styleOverlay}
 
   right: 0;
-  background: linear-gradient(270deg, rgba(212,199,217,1) 0%, rgba(212,199,217,0) 100%);
+  background: linear-gradient(270deg, rgba(184, 170, 189, 1) 0%, rgba(184, 170, 189, 0) 100%);
 `;
 
 const styleDaysContainer = css`

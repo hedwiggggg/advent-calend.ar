@@ -19,9 +19,9 @@ function RenderDay({ importDay }: { importDay: () => DayImport }) {
   }, [importDay]);
 
   return (
-    <Link to={`/open/${$Day?.hash}`} id={$Day?.hash}>
-      <img src={$Day?.qrCode} alt="qr-code" />
-      <code>{ $Day?.name }</code>
+    <Link to={`/open/${$Day?.__hash}`} id={$Day?.__hash}>
+      <img src={$Day?.__qrCode} alt="qr-code" />
+      <code>{ $Day?.__name }</code>
     </Link>
   );
 }
