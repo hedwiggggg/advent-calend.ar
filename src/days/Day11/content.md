@@ -8,8 +8,8 @@ Denn ich bin stark wie Conan! 💪
   
 ...
   
-Zurück zum Thema, Geschenke soll es regnen! 🌧️  
-Wir wollen endlich dem Biest begegnen! 🙈
+Zurück zum Thema, Geschenke soll es regnen 🌧️  
+Wir wollen endlich dem Biest begegnen 🙈
   
 ...
   
@@ -17,7 +17,7 @@ Schau mal dort! 👁👄👁
 An diesem Ort 👉🏻  
   
 Das Biest ist erpicht, 🦁  
-auf die Beute, sie merkt es nicht. 🐑
+auf die Beute, sie merkt es nicht 🐑
   
 ...
   

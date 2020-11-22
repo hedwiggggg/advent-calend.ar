@@ -4,7 +4,7 @@
 > und danach verlangst, ❤️‍🔥  
 > ...
   
-Oh Mist, ich bin wohl in einer Schleife gefangen. 💩♾️  
+Oh Mist, ich bin wohl in einer Schleife gefangen 💩♾️  
 Ich hoffe, das ist dir entgangen.. 😴
   
 Kann man wohl nichts machen.. 😐  

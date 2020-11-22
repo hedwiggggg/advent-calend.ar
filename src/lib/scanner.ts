@@ -73,6 +73,12 @@ class Scanner extends EventEmitter {
 
     await Scanner.getStream;
     Scanner.stream?.getTracks().forEach((t) => t.stop());
+
+    Scanner.currentDay = undefined;
+    Scanner.currentDayImport = undefined;
+    Scanner.setDay = undefined;
+    Scanner.symbol = undefined;
+    Scanner.stream = undefined;
   }
 
   private static drawVideo() {

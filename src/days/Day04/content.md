@@ -1,7 +1,7 @@
 ### Tag 4
 
 Irgendwie hab ich davon zu viele, 🎊  
-viel zu viele dieser Stiele. 🍭  
+viel zu viele dieser Stiele 🍭  
   
 Lass es prickeln, lass es krachen, 🎉  
 füttre schön den bößen Drachen, 🐉  

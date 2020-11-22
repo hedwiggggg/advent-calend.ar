@@ -7,7 +7,3 @@ musst du dich sorgen,
   
 Dies' Geschenk sei ohne Gewähr, 🎁  
 denn vielleicht gibt's mein Konto nicht her. 💸
-
----
-
-`egbwEnoMPzhhXBJVFtbPRPf`

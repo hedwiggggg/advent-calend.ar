@@ -3,7 +3,7 @@
 "Bisher war der Kalender nicht so überzeugend.." 😞  
 sagte Santa, beugend, 🎅🙇‍♂️  
   
-über den Geschenken. 🎁
+über den Geschenken 🎁
   
 "Wirklich kreativ war er nicht, 🖊️  
 das sehe ich in Ihrem Gesicht" 😴

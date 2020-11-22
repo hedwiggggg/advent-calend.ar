@@ -21,10 +21,7 @@ function Open() {
 
   return (
     <div className={styleDaysContainer}>
-      <span
-        className={styleBackLink}
-        onClick={history.goBack}
-      >
+      <span className={styleBackLink} onClick={history.goBack}>
         Zurück
       </span>
 
@@ -32,7 +29,7 @@ function Open() {
 
       <div
         dangerouslySetInnerHTML={{
-          __html: content ?? '',
+          __html: content ?? '<h3>Lädt ..</h3>',
         }}
       />
     </div>
@@ -48,6 +45,8 @@ const styleBackLink = css`
   border-radius: 4px;
   font-weight: bold;
   text-decoration: none;
+  user-select: none;
+  cursor: pointer;
 `;
 
 const styleDaysContainer = css`

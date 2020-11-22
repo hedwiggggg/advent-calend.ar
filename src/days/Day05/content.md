@@ -3,7 +3,7 @@
 Es wir nochmal Zeit, dass du entspannst, 💆‍♀️  
 und danach verlangst, ❤️‍🔥
   
-das Feuer von gestern wieder zu löschen. 🌊  
+das Feuer von gestern wieder zu löschen 🌊  
   
 Löschen,  
 apropos löschen.. 🧯  

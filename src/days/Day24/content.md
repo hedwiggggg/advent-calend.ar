@@ -8,16 +8,12 @@ Trotzdem wird die Party ~~GROß~~ 🤯..
   
 oder doch bloß, ..  
   
-schön. 🤗  
+.. schön 🤗  
   
-Ja, schön soll es werden.  
-Du kannst es nirgends erwerben! 💵💴💶💷  
+Ja, schön soll es werden, 🌼  
+du kannst es nirgends erwerben! 💵💴💶💷  
   
-Denn nicht nur schön, auch besonders soll es sein.  
-Deiner würdig, denn du bist mein,
+Denn nicht nur schön, auch besonders soll es sein 😮  
+Deiner würdig, denn du bist mein, ❤️
   
-liebster Mensch und beste Freundin. 💞
-
----
-
-`gaHDJBYRASaLbqWkwMvbsXG`
+liebster Mensch und beste Freundin 💞
