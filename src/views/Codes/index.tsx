@@ -5,20 +5,7 @@ import { Link } from 'react-router-dom';
 import days from 'src/days';
 import { DayImport, Day } from 'src/days/types';
 
-const daysArray = shuffle(Object.values(days));
-
-/**
- * Shuffles array in place. ES6 version
- * @param {Array} a items An array containing the items.
- */
-function shuffle<T>(a: Array<T>) {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-
-  return a;
-}
+const allDayImports = Object.values(days);
 
 function RenderDay({ importDay }: { importDay: () => DayImport }) {
   const [$Day, setThe$Day] = useState<typeof Day>();
@@ -41,7 +28,7 @@ function RenderDay({ importDay }: { importDay: () => DayImport }) {
 function Codes() {
   return (
     <div className={styleDayssContainer}>
-      { daysArray.map(($day, i) => <RenderDay key={i} importDay={$day} />) }
+      { allDayImports.map(($day, i) => <RenderDay key={i} importDay={$day} />) }
     </div>
   );
 }

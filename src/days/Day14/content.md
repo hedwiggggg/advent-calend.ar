@@ -1,5 +1,2 @@
-### Day14 
+### Tag 14
 
----
-
-`dRWZcRmwTJmgLMYywqziEyO`

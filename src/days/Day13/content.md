@@ -1,16 +1,17 @@
 ### Tag 13
 
-Schau mal dort! 👁👄👁  
-An diesem Ort 👉🏻  
-  
-Das Biest ist erpicht, 🦁  
-auf die Beute, sie merkt es nicht. 🐑
+Oh nein, die Muster kehren wieder, ♾️  
+und wieder kann ich mich nicht wehren. 🛡️  
   
 ...
   
-Wow, was für ein Tag das war! 🤩🤯  
-Vor allem: Wie cool war bitte der Jaguar? 🏎
-
----
-
-`fDzejmzXQGYVITUknsduQzs`
+Da will mich Nolan wohl eine Lektion lehren. 🧑‍🏫  
+  
+Oh, Lehre, ich hab die Uni so satt. 🧑‍🎓  
+Sie macht mich ganz schlapp. 😫
+  
+Endlich frei will ich sein, 🆓  
+raus aus der Pein! 🤕  
+  
+Mir Dinge kaufen, viele, 🖨️💻📱  
+wie es mir beliebe! 💵

@@ -1,12 +1,8 @@
 ### Tag 1
 
-Adventszeit,  
-heute ist es so weit.  
-Bist du bereit?  
+Adventszeit, 🎄  
+heute ist es so weit. 📅  
+Bist du bereit? 🏃‍♀️  
   
-Falls nicht,  
+Falls nicht, 🙅‍♀️  
 Hoffnung ist in Sicht 🤭
-
----
-
-`crFoJPqGrYmMsvazSwzYqEC`

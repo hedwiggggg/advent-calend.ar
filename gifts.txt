@@ -1,24 +1,24 @@
-1   - Alte Quetsch                                  x
-2   - 
-3   - 
-4   - Süßes
-5   - 
-6   - Tee
-7   - 
-8   - Süßes
-9   - 
-10  - 
-11  - Süßes
-12  - Bier                                          x
-13  - Gutschein Zoo                                 x
-14  - 
-15  - Süßes
-16  - 
-17  - 
-18  - Tee
-19  - 
-20  - 
-21  - Süßes
-22  - 
-23  - Gutschein Schlittschuhlaufen / Burger essen   x
-24  - T-Shirt                                       x
+[x] Alte Quetsch
+[x] Bade-Essenz
+[x] Amazon Gutschein
+[x] Chupa Chups Crazy Dips
+[x] Tee
+[x] Bade-Essenz
+[x] Chupa Chups Crazy Dips
+[x] Amazon Gutschein
+[x] Tee
+[x] Bade-Essenz
+[x] Gutschein Zoo
+[x] Bier
+[x] Amazon Gutschein
+[ ] Tee
+[ ] Bade-Essenz
+[ ] Chupa Chups Crazy Dips
+[ ] Amazon Gutschein
+[ ] Gutschein Schlittschuhlaufen / Burger essen
+[ ] Bade-Essenz
+[ ] Tee
+[ ] Amazon Gutschein
+[ ] Bade-Essenz
+[ ] Tee
+[x] T-Shirt
