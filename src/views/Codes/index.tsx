@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import days from 'src/days';
 import { DayImport, Day } from 'src/days/types';
 
-const allDayImports = Object.values(days);
+const allDayImports = Object.values(days).reverse();
 
 function RenderDay({ importDay }: { importDay: () => DayImport }) {
   const [$Day, setThe$Day] = useState<typeof Day>();
@@ -17,11 +17,10 @@ function RenderDay({ importDay }: { importDay: () => DayImport }) {
   }, [importDay]);
 
   return (
-    <div>
+    <Link to={`/open/${$Day?.hash}`}>
       <img src={$Day?.qrCode} alt="qr-code" />
       <code>{ $Day?.name }</code>
-      <Link to={`/open/${$Day?.hash}`}><code>{ $Day?.hash }</code></Link>
-    </div>
+    </Link>
   );
 }
 
@@ -41,7 +40,7 @@ const styleDayssContainer = css`
   min-width: 100%;
   max-width: 100%;
 
-  div {
+  a {
     position: relative;
     float: left;
 
@@ -55,11 +54,7 @@ const styleDayssContainer = css`
     break-inside: avoid;
 
     code, span {
-      font-size: 18px;
-
-      @media print {
-        font-size: 48px;
-      }
+      font-size: 2vw;
 
       display: block;
       width: 100%;
@@ -69,6 +64,26 @@ const styleDayssContainer = css`
 
     img {
       max-width:100%;
+    }
+
+    @media (max-width: 380px) {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+
+      code, span {
+        font-size: 6vw;
+      }
+    }
+
+    @media (min-width: 380px) and (max-width: 620px) {
+      width: 50%;
+      min-width: 50%;
+      max-width: 50%;
+
+      code, span {
+        font-size: 3vw;
+      }
     }
   }
 `;

@@ -4,8 +4,8 @@ Es wir nochmal Zeit, dass du entspannst, 💆‍♀️
 und danach verlangst, ❤️‍🔥
   
 das Feuer von gestern wieder zu löschen. 🌊  
-Löschen, das ist das Stichwort, 🧯  
   
-...
+Löschen,  
+apropos löschen.. 🧯  
   
-Verbrenn dich nicht! 🔥
+..verbrenn dich nicht! 🔥

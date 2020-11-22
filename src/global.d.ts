@@ -7,3 +7,8 @@ declare module "workerize-loader!*" {
   function createInstance<T>(): Workerized<T>;
   export = createInstance;
 }
+
+declare module "*.md" {
+  const src: string;
+  export default src;
+}

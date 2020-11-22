@@ -102,8 +102,8 @@ class Scanner extends EventEmitter {
     const scanX = (Scanner.contextVideo.canvas.width - 300) / 2;
     const scanY = (Scanner.contextVideo.canvas.height - 300) / 2;
 
-    Scanner.contextVideo.strokeStyle = "#ffffff";
-    Scanner.contextVideo.lineWidth = 3;
+    Scanner.contextVideo.strokeStyle = "#d4c7d9";
+    Scanner.contextVideo.lineWidth = 6;
     Scanner.contextVideo.beginPath();
 
     roundedRectangle(

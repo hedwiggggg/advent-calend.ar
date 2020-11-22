@@ -7,6 +7,11 @@ html, body, #root {
   min-width: 100%;
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
+
+  background-color: #d4c7d9;
+  color: #543a5f;
+
+  font-family: 'Roboto', sans-serif;
 }
 
 img.emoji {

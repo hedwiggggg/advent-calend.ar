@@ -30,7 +30,7 @@ module.exports = {
         (path) => {
           const hashHex = md5(path);
           const hashBytes = hex.decode(hashHex);
-          const hashLetters = letters.encode(hashBytes);
+          const hashLetters = letters.encode(hashBytes).padEnd(23, "0");
 
           return `import ${hashLetters} from '${path}';`;
         }
@@ -46,7 +46,7 @@ module.exports = {
         (path) => {
           const hashHex = md5(path);
           const hashBytes = hex.decode(hashHex);
-          const hashLetters = letters.encode(hashBytes);
+          const hashLetters = letters.encode(hashBytes).padEnd(23, "0");
 
           return `loadImage(${hashLetters}),`;
         }

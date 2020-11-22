@@ -5,4 +5,4 @@ heute ist es so weit. 📅
 Bist du bereit? 🏃‍♀️  
   
 Falls nicht, 🙅‍♀️  
-Hoffnung ist in Sicht 🤭
+Hoffnung ist in Sicht.. 🤭
