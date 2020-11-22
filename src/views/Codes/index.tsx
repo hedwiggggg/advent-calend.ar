@@ -11,13 +11,15 @@ function RenderDay({ importDay }: { importDay: () => DayImport }) {
   const [$Day, setThe$Day] = useState<typeof Day>();
 
   useEffect(() => {
-    importDay().then((dayImport) => {
-      setThe$Day(() => dayImport.default);
-    })
+    importDay().then(
+      (dayImport) => setThe$Day(
+        () => dayImport.default
+      )
+    )
   }, [importDay]);
 
   return (
-    <Link to={`/open/${$Day?.hash}`}>
+    <Link to={`/open/${$Day?.hash}`} id={$Day?.hash}>
       <img src={$Day?.qrCode} alt="qr-code" />
       <code>{ $Day?.name }</code>
     </Link>

@@ -11,9 +11,9 @@
 [x] Gutschein Zoo
 [x] Bier
 [x] Amazon Gutschein
-[ ] Tee
-[ ] Bade-Essenz
-[ ] Chupa Chups Crazy Dips
+[x] Tee
+[x] Bade-Essenz
+[x] Chupa Chups Crazy Dips
 [ ] Amazon Gutschein
 [ ] Gutschein Schlittschuhlaufen / Burger essen
 [ ] Bade-Essenz

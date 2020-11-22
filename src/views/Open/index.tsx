@@ -6,7 +6,6 @@ import days from 'src/days';
 
 function Open() {
   const history = useHistory();
-
   const [content, setContent] = useState<string>();
 
   const { day } = useParams<{ day: string }>();
