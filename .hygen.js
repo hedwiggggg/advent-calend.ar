@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const baseX = require('base-x');
 const md5 = require('md5');
+const Jimp = require('jimp');
 
 const Spritesmith = require('spritesmith');
 const canvassmith = require('canvassmith');
@@ -29,22 +30,24 @@ module.exports = {
         const framesRawSorted = framesRaw.sort(([keyA], [keyB]) => keyA - keyB);
         const framesSorted = framesRawSorted.map(([, value]) => value);
 
-        fs.writeFileSync(path.join(__dirname, 'src/days', name, 'sprites.png'), result.image);
-        fs.writeFileSync(path.join(__dirname, 'src/days', name, 'sprites_data.json'), JSON.stringify(framesSorted, null, 2));
+        const spriteJpgPath = path.join(__dirname, 'src/days', name, 'sprites.jpg');
+        const spriteDataPath = path.join(__dirname, 'src/days', name, 'sprites_data.json');
+
+        fs.writeFileSync(spriteDataPath, JSON.stringify(framesSorted, null, 2));
+
+        Jimp.read(result.image, (err, image) => {
+          if (err) throw err;
+
+          image
+            .quality(60)
+            .write(spriteJpgPath);
+        });
       });
 
       return (
-        `import sprites from './sprites.png';\n` +
+        `import sprites from './sprites.jpg';\n` +
         `import spritesData from './sprites_data.json';`
       );
-    },
-
-    imageImportsFromPath: (imagesPath) => {
-      const images = fs.readdirSync(imagesPath);
-      const imagesPaths = images.map((i) => path.join(imagesPath, i));
-      const imageImports = imagesPaths.map((path) => `import('${path}'),`);
-
-      return imageImports.join('\n    ');
     },
 
     hash: (stringValue) => {
@@ -52,38 +55,6 @@ module.exports = {
       const hashBytes = hex.decode(hashHex);
       const hashLetters = letters.encode(hashBytes).padEnd(23, "0");
       return hashLetters;
-    },
-
-    importsFromPath: (imagesPath) => {
-      const images = fs.readdirSync(imagesPath);
-      const imagesPaths = images.map((i) => path.join(imagesPath, i));
-      const imageImports = imagesPaths.map(
-        (path) => {
-          const hashHex = md5(path);
-          const hashBytes = hex.decode(hashHex);
-          const hashLetters = letters.encode(hashBytes).padEnd(23, "0");
-
-          return `import ${hashLetters} from '${path}';`;
-        }
-      );
-
-      return imageImports.join('\n');
-    },
-
-    imagesFromPath: (imagesPath) => {
-      const images = fs.readdirSync(imagesPath);
-      const imagesPaths = images.map((i) => path.join(imagesPath, i));
-      const imageImports = imagesPaths.map(
-        (path) => {
-          const hashHex = md5(path);
-          const hashBytes = hex.decode(hashHex);
-          const hashLetters = letters.encode(hashBytes).padEnd(23, "0");
-
-          return `loadImage(${hashLetters}),`;
-        }
-      );
-
-      return imageImports.join('\n    ');
     },
   }
 }
