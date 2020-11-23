@@ -1,5 +1,4 @@
 import { RefObject, useEffect, useState } from "react";
-import EventEmitter from "eventemitter3";
 
 import { coverFit, roundedRectangle } from "./helper";
 import { transform2d } from "./matrix";
@@ -22,7 +21,7 @@ type BindProps = {
   setDay: React.Dispatch<React.SetStateAction<typeof Day | null>>;
 };
 
-class Scanner extends EventEmitter {
+class Scanner {
   private static scanWorker = createScanWorker<typeof ScanWorker>();
   private static video = document.createElement("video");
 
