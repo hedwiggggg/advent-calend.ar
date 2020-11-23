@@ -2,26 +2,22 @@ import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import days from 'src/days';
-import { DayImport, Day } from 'src/days/types';
+import { daysData } from 'src/days';
+import { DayData } from 'src/days/types';
 
-const allDayImports = Object.values(days).reverse();
-
-function RenderDay({ importDay }: { importDay: () => DayImport }) {
-  const [$Day, setThe$Day] = useState<typeof Day>();
+function RenderDay({ dayData }: { dayData: DayData }) {
+  const [qrCodeUri, setQrCodeUri] = useState<string>();
 
   useEffect(() => {
-    importDay().then(
-      (dayImport) => setThe$Day(
-        () => dayImport.default
-      )
-    )
-  }, [importDay]);
+    dayData
+      .__qrCode()
+      .then(({ default: codeUri }) => setQrCodeUri(codeUri))
+  }, [dayData]);
 
   return (
-    <Link to={`/open/${$Day?.__hash}`} id={$Day?.__hash}>
-      <img src={$Day?.__qrCode} alt="qr-code" />
-      <code>{ $Day?.__name }</code>
+    <Link to={`/open/${dayData.__hash}`}>
+      <img src={qrCodeUri} alt="qr-code" />
+      <code>{ dayData.__name }</code>
     </Link>
   );
 }
@@ -29,7 +25,7 @@ function RenderDay({ importDay }: { importDay: () => DayImport }) {
 function Codes() {
   return (
     <div className={styleDayssContainer}>
-      { allDayImports.map(($day, i) => <RenderDay key={i} importDay={$day} />) }
+      { daysData.map((dayData) => <RenderDay key={dayData.__hash} dayData={dayData} />) }
     </div>
   );
 }

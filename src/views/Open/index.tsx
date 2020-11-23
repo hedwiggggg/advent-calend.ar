@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-import days from 'src/days';
+import { days } from 'src/days';
 
 function Open() {
   const history = useHistory();

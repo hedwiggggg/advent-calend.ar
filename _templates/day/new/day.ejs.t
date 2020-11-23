@@ -7,7 +7,7 @@ import { loadImage } from "../helper";
 
 import qrCode from './qr-code.png';
 
-<%- h.importsFromPath(imagesPath) %>
+<%- h.generateSpriteImport(name, imagesPath) %>
 
 <%if (typeof dev !== 'undefined') { %>
 import marked from 'marked';
@@ -49,35 +49,48 @@ export default class <%= Name %> extends Day {
   `;
   <% } %>
 
-  private static framesPromises = [
-    <%- h.imagesFromPath(imagesPath) %>
-  ];
+  private static framesSpritePromise = loadImage(sprites);
+  private static framesSprite: HTMLImageElement;
+  private static framesCanvas = document.createElement('canvas');
+  private static framesContext = <%= name %>.framesCanvas.getContext('2d');
 
-  private static frames: Array<HTMLImageElement> = [];
   private static currentFrame: number = 0;
 
   private static fps = 1000 / 20;
   private static last = 0;
 
   public static async init() {
-    if (<%= name %>.frames.length === 0) {
+    if (<%= name %>.framesSprite === undefined) {
       await <%= name %>.loadFrames();
     }
   }
 
   private static async loadFrames() {
-    <%= name %>.frames = await Promise.all(<%= name %>.framesPromises);
+    <%= name %>.framesSprite = await <%= name %>.framesSpritePromise;
   }
 
-  public static getFrame(): HTMLImageElement {
+  public static getFrame(): HTMLCanvasElement {
+    if (<%= name %>.framesContext === null) throw new Error("<%= name %>.framesContext === null");
+    
     const now = Date.now();
     const elapsed = now - <%= name %>.last;
 
-    if (elapsed < <%= name %>.fps) return <%= name %>.frames[<%= name %>.currentFrame];
+    if (elapsed >= <%= name %>.fps) {
+      <%= name %>.last = now;
+      <%= name %>.currentFrame = (<%= name %>.currentFrame + 1) % spritesData.length;
 
-    <%= name %>.last = now;
-    <%= name %>.currentFrame = (<%= name %>.currentFrame + 1) % <%= name %>.frames.length;
+      const { x, y, width, height } = spritesData[<%= name %>.currentFrame];
 
-    return <%= name %>.frames[<%= name %>.currentFrame];
+      <%= name %>.framesCanvas.width = width;
+      <%= name %>.framesCanvas.height = height;
+
+      <%= name %>.framesContext.drawImage(
+        <%= name %>.framesSprite,
+        x, y, width, height,
+        0, 0, width, height,
+      )
+    }
+
+    return <%= name %>.framesCanvas;
   }
 }

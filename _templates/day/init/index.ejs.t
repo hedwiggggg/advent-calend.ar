@@ -3,10 +3,10 @@ to: src/days/index.ts
 unless_exists: true
 ---
 
-import { Days } from './types';
+import { Days, DaysData } from './types';
 
-const days: Days = {
-  // export days
+export const days: Days = {
 };
 
-export default days;
+export const daysData: DaysData = [
+];

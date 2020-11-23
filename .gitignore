@@ -1,8 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/src/assets
-!/src/assets/loading
-
+/frames
 /src/days
 !/src/days/helper.ts
 !/src/days/types.ts

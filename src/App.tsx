@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Scanner from 'src/views/Scanner';
 import Codes from 'src/views/Codes';
@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/">
       <Switch>
         <Route path="/codes" component={Codes} />
         <Route path="/open/:day" component={Open} />

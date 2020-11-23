@@ -4,8 +4,9 @@ import EventEmitter from "eventemitter3";
 import { coverFit, roundedRectangle } from "./helper";
 import { transform2d } from "./matrix";
 
-import days from 'src/days';
+import { days } from 'src/days';
 import Loading from 'src/days/Loading'
+
 import { Day, DayImport } from 'src/days/types';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
