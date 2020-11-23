@@ -1,5 +1,0 @@
-### Day22 
-
----
-
-`arnPcOYZoBlcnPvwMxyaWAB`
