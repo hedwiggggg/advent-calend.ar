@@ -15,5 +15,5 @@ export class Day {
   public static __content: () => Promise<string>;
 
   public static init(): Promise<void> { throw new Error("not implemented") }
-  public static getFrame(): HTMLCanvasElement { throw new Error("not implemented") }
+  public static getFrame(): HTMLImageElement { throw new Error("not implemented") }
 }

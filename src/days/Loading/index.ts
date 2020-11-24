@@ -1,55 +1,57 @@
 import { Day } from "../types";
 import { loadImage } from "../helper";
 
-import sprites from './sprites.jpg';
-import spritesData from './sprites_data.json';
+import bNgqbpqOShoQqXtmncgWNLN from './frames/frame_0000.jpg';
+import UipcnGQXTkwPXOgLAZMCDo0 from './frames/frame_0001.jpg';
+import fXnMPlxtoyTUncCMfuXsIxy from './frames/frame_0002.jpg';
+import cWLCGgySQbWThOAaPnlRuhM from './frames/frame_0003.jpg';
+import dBfWiqWcyLzYObtFQqrDkMH from './frames/frame_0004.jpg';
+import eYSaeAtZwJwkPqVGGzTdLFz from './frames/frame_0005.jpg';
+import dabqteZdpmNATyrWQfqGOnf from './frames/frame_0006.jpg';
+import cyRkIFEbUnjpJlSqQzuJtSo from './frames/frame_0007.jpg';
+import dxfMkqgYPVVrHbZqyzAkRGa from './frames/frame_0008.jpg';
 
 export default class Loading extends Day {
   public static __hash = "BReGMADCfQjVzBOyywjpgC0";
   public static __name = "Loading";
 
-  private static framesSpritePromise = loadImage(sprites);
-  private static framesSprite: HTMLImageElement;
-  private static framesCanvas = document.createElement('canvas');
-  private static framesContext = Loading.framesCanvas.getContext('2d');
+  public static framesPromises = [
+    loadImage(bNgqbpqOShoQqXtmncgWNLN),
+    loadImage(UipcnGQXTkwPXOgLAZMCDo0),
+    loadImage(fXnMPlxtoyTUncCMfuXsIxy),
+    loadImage(cWLCGgySQbWThOAaPnlRuhM),
+    loadImage(dBfWiqWcyLzYObtFQqrDkMH),
+    loadImage(eYSaeAtZwJwkPqVGGzTdLFz),
+    loadImage(dabqteZdpmNATyrWQfqGOnf),
+    loadImage(cyRkIFEbUnjpJlSqQzuJtSo),
+    loadImage(dxfMkqgYPVVrHbZqyzAkRGa),
+  ];
 
+  private static frames: HTMLImageElement[];
   private static currentFrame: number = 0;
 
   private static fps = 1000 / 20;
   private static last = 0;
 
   public static async init() {
-    if (Loading.framesSprite === undefined) {
+    if (Loading.frames === undefined) {
       await Loading.loadFrames();
     }
   }
 
   private static async loadFrames() {
-    Loading.framesSprite = await Loading.framesSpritePromise;
+    Loading.frames = await Promise.all(Loading.framesPromises);
   }
 
-  public static getFrame(): HTMLCanvasElement {
-    if (Loading.framesContext === null) throw new Error("Loading.framesContext === null");
-    
+  public static getFrame() {    
     const now = Date.now();
     const elapsed = now - Loading.last;
 
     if (elapsed >= Loading.fps) {
       Loading.last = now;
-      Loading.currentFrame = (Loading.currentFrame + 1) % spritesData.length;
-
-      const { x, y, width, height } = spritesData[Loading.currentFrame];
-
-      Loading.framesCanvas.width = width;
-      Loading.framesCanvas.height = height;
-
-      Loading.framesContext.drawImage(
-        Loading.framesSprite,
-        x, y, width, height,
-        0, 0, width, height,
-      )
+      Loading.currentFrame = (Loading.currentFrame + 1) % Loading.frames.length;
     }
 
-    return Loading.framesCanvas;
+    return Loading.frames[Loading.currentFrame];
   }
 }

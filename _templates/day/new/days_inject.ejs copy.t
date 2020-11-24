@@ -2,7 +2,7 @@
 inject: true
 to: src/days/index.ts
 after: "const days: Days = {"
-skip_if: "<%= h.hash(name) %>\\:"
+skip_if: "<%= hashedName %>\\:"
 force: true
 ---
-  <%= h.hash(name) %>: () => import('./<%= name %>'),
+  <%= hashedName %>: () => import('./<%= name %>'),
