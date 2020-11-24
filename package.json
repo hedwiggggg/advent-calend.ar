@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/css": "^11.0.0",
     "base-x": "^3.0.8",
+    "bottleneck": "^2.19.5",
     "marked": "^1.2.5",
     "md5": "^2.3.0",
     "react": "^17.0.1",
