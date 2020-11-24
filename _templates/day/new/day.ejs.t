@@ -14,14 +14,13 @@ import qrCode from './qr-code.png';
 export default class <%= Name %> extends Day {
   public static __hash = "<%= hashedName %>";
   public static __name = "<%= name %>";
-
   public static __qrCode = qrCode;
+
+  public static __content = <%- contentFunction %>
 
   public static framesPromises = [
     <%- framesPromises %>
   ];
-
-  public static __content = <%- contentFunction %>
 
   private static frames: HTMLImageElement[];
   private static currentFrame: number = 0;
