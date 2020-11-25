@@ -24,7 +24,7 @@ const getFrames = async (name, imagesPath) => {
   for (let i = 0; i < $$imagesPaths.length; i++) {
     const imagePath = $$imagesPaths[i];
 
-    const imageNum = `${i}`.padStart(4, `0`);
+    const imageNum = `${i}`.padStart(3, `0`);
     const framePath = path.join('src/days', name, 'frames', `frame_${imageNum}.jpg`);
 
     $framesPromises.push(`loadImage(${hash(imageNum)}),`);

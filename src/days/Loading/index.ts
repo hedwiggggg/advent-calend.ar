@@ -1,30 +1,27 @@
 import { Day } from "../types";
 import { loadImage } from "../helper";
 
-import bNgqbpqOShoQqXtmncgWNLN from './frames/frame_0000.jpg';
-import UipcnGQXTkwPXOgLAZMCDo0 from './frames/frame_0001.jpg';
-import fXnMPlxtoyTUncCMfuXsIxy from './frames/frame_0002.jpg';
-import cWLCGgySQbWThOAaPnlRuhM from './frames/frame_0003.jpg';
-import dBfWiqWcyLzYObtFQqrDkMH from './frames/frame_0004.jpg';
-import eYSaeAtZwJwkPqVGGzTdLFz from './frames/frame_0005.jpg';
-import dabqteZdpmNATyrWQfqGOnf from './frames/frame_0006.jpg';
-import cyRkIFEbUnjpJlSqQzuJtSo from './frames/frame_0007.jpg';
-import dxfMkqgYPVVrHbZqyzAkRGa from './frames/frame_0008.jpg';
+import eJsKUTRcYSEFfABxBJrzKKe from './frames/frame_000.jpg';
+import fjDvshmAAVOOTRvytkckAkN from './frames/frame_001.jpg';
+import dyTQucXIPtHdBvmOnYBiKIY from './frames/frame_002.jpg';
+import fyygFoXLlHJQreuoXZuNDhe from './frames/frame_003.jpg';
+import vcTESVVbbPgeVyPxyEdnaA0 from './frames/frame_004.jpg';
+import eSccGUyFGTpwJpNPfQUBnUL from './frames/frame_005.jpg';
+import cbRUgnbjsZINRtRKOheHqOZ from './frames/frame_006.jpg';
+import dLZzKoXJhsWJSUYjRVVGaYr from './frames/frame_007.jpg';
+import dPnajTNsSFWYIZPtpwSbWnG from './frames/frame_008.jpg';
 
 export default class Loading extends Day {
-  public static __hash = "BReGMADCfQjVzBOyywjpgC0";
-  public static __name = "Loading";
-
   public static framesPromises = [
-    loadImage(bNgqbpqOShoQqXtmncgWNLN),
-    loadImage(UipcnGQXTkwPXOgLAZMCDo0),
-    loadImage(fXnMPlxtoyTUncCMfuXsIxy),
-    loadImage(cWLCGgySQbWThOAaPnlRuhM),
-    loadImage(dBfWiqWcyLzYObtFQqrDkMH),
-    loadImage(eYSaeAtZwJwkPqVGGzTdLFz),
-    loadImage(dabqteZdpmNATyrWQfqGOnf),
-    loadImage(cyRkIFEbUnjpJlSqQzuJtSo),
-    loadImage(dxfMkqgYPVVrHbZqyzAkRGa),
+    loadImage(eJsKUTRcYSEFfABxBJrzKKe),
+    loadImage(fjDvshmAAVOOTRvytkckAkN),
+    loadImage(dyTQucXIPtHdBvmOnYBiKIY),
+    loadImage(fyygFoXLlHJQreuoXZuNDhe),
+    loadImage(vcTESVVbbPgeVyPxyEdnaA0),
+    loadImage(eSccGUyFGTpwJpNPfQUBnUL),
+    loadImage(cbRUgnbjsZINRtRKOheHqOZ),
+    loadImage(dLZzKoXJhsWJSUYjRVVGaYr),
+    loadImage(dPnajTNsSFWYIZPtpwSbWnG),
   ];
 
   private static frames: HTMLImageElement[];
