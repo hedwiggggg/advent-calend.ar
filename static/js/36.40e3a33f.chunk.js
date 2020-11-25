@@ -1,0 +1,2 @@
+(this["webpackJsonpadvent-calend.ar"]=this["webpackJsonpadvent-calend.ar"]||[]).push([[36],{101:function(a,e,t){"use strict";t.r(e),e.default=t.p+"static/media/qr-code.e80ea6ea.png"}}]);
+//# sourceMappingURL=36.40e3a33f.chunk.js.map
